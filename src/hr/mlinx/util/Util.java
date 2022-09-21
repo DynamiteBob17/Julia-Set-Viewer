@@ -11,7 +11,7 @@ public class Util {
 	public static final double SCALE = RES.getWidth() / 1920.0;
 	public static final Random R = new Random();
 	
-	public static final float FONT_SIZE = 18f * (float) SCALE;
+	public static final float FONT_SIZE = 16f * (float) SCALE;
 	
 	public static double map(double val, double valLow, double valHigh, double returnValLow, double returnValHigh) {
 		
