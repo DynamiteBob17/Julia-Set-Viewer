@@ -2,7 +2,10 @@ package hr.mlinx.viewer;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
@@ -62,7 +65,14 @@ public class JuliaViewer extends JPanel implements MouseMotionListener, MouseLis
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		
+		Graphics2D g2 = (Graphics2D) g;
 		g.drawImage(juliaSet, 0, 0, null);
+		
+		g2.setFont(new Font("Segoe", Font.PLAIN, (int) Util.FONT_SIZE));
+		g2.setColor(Color.WHITE);
+		g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+							RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		g2.drawString(constant.toString().replace('Z', 'C'), 10, 25);
 	}
 	
 	private void plotJuliaSet() {
@@ -119,7 +129,7 @@ public class JuliaViewer extends JPanel implements MouseMotionListener, MouseLis
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		double x = Util.map(e.getX(), 0, WIDTH, REAL_MIN, REAL_MAX);
-		double y = Util.map(e.getY(), 0, HEIGHT, IMAG_MIN, IMAG_MAX);
+		double y = Util.map(e.getY(), 0, HEIGHT, IMAG_MAX, IMAG_MIN);
 		constant = new Complex(x, y);
 		
 		plotJuliaSet();

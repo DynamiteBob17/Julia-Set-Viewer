@@ -2,11 +2,8 @@ package hr.mlinx.util;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.Toolkit;
 import java.util.Random;
-
-import javax.swing.UIManager;
 
 public class Util {
 	
@@ -14,19 +11,7 @@ public class Util {
 	public static final double SCALE = RES.getWidth() / 1920.0;
 	public static final Random R = new Random();
 	
-	public static final float FONT_SIZE = 15f * (float) SCALE;
-	
-	public static void setUIFonts() {
-		
-		Font messageFont = new Font("Verdana", Font.PLAIN, (int) FONT_SIZE);
-		Font componentFont = new Font("Segoe", Font.PLAIN, (int) FONT_SIZE);
-		
-		UIManager.put("OptionPane.messageFont", messageFont);
-		UIManager.put("OptionPane.buttonFont", messageFont);
-		UIManager.put("Label.font", componentFont);
-		UIManager.put("TextField.font", componentFont);
-		
-	}
+	public static final float FONT_SIZE = 18f * (float) SCALE;
 	
 	public static double map(double val, double valLow, double valHigh, double returnValLow, double returnValHigh) {
 		
