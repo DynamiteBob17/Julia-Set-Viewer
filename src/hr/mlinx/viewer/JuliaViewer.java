@@ -69,7 +69,7 @@ public class JuliaViewer extends JPanel implements MouseMotionListener, MouseLis
 		
 		g2.setFont(new Font(Font.MONOSPACED, Font.PLAIN, (int) Util.FONT_SIZE));
 		g2.setColor(Color.WHITE);
-		g2.drawString(constant.toString().replace('Z', 'C'), 10, 25);
+		g2.drawString(constant.toString().replace('Z', 'C'), 10, 20);
 	}
 	
 	private void plotJuliaSet() {
