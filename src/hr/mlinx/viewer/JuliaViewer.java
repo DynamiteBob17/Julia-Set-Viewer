@@ -12,8 +12,10 @@ import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import hr.mlinx.input.KeyInput;
 import hr.mlinx.plotting.Complex;
 import hr.mlinx.util.Util;
 
@@ -58,6 +60,10 @@ public class JuliaViewer extends JPanel implements MouseMotionListener, MouseLis
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
+		JOptionPane.showMessageDialog(null, "Press SPACE to input constant coordinates.");
+		
+		addKeyListener(new KeyInput(this));
+		requestFocus();
 	}
 	
 	@Override
@@ -146,6 +152,19 @@ public class JuliaViewer extends JPanel implements MouseMotionListener, MouseLis
 
 	@Override
 	public void mouseExited(MouseEvent e) {
+	}
+	
+	public double[] getConstant() {
+		return new double[] {
+				constant.getX(),
+				constant.getY()
+		};
+	}
+	
+	public void setConstant(double real, double imaginary) {
+		constant = new Complex(real, imaginary);
+		
+		plotJuliaSet();
 	}
 	
 	public static void main(String[] args) {
