@@ -60,7 +60,7 @@ public class JuliaViewer extends JPanel implements MouseMotionListener, MouseLis
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
-		JOptionPane.showMessageDialog(null, "Press SPACE to input constant coordinates.");
+		JOptionPane.showMessageDialog(null, "Press SPACE to input constant coordinates or use the mouse.");
 		
 		addKeyListener(new KeyInput(this));
 		requestFocus();
